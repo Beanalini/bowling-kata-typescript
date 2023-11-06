@@ -30,10 +30,10 @@ export const bowlingScore = (gameFrames: string): number => {
   let gameRolls = gameFrames.replace(/\s/g, "").split("");
   gameRolls.forEach((roll, index) => {
     if (roll === "X" && index < gameRolls.length - 2) {
+      const firstBonusRoll = gameRolls[index + 1];
+      const secondBonusRoll = gameRolls[index + 2];
       score +=
-        scoreMap[roll] +
-        scoreMap[gameRolls[index + 1]] +
-        scoreMap[gameRolls[index + 2]];
+        scoreMap[roll] + scoreMap[firstBonusRoll] + scoreMap[secondBonusRoll];
     }
   });
 
