@@ -32,8 +32,14 @@ export const bowlingScore = (gameFrames: string): number => {
     if (roll === "X" && index < gameRolls.length - 2) {
       const firstBonusRoll = gameRolls[index + 1];
       const secondBonusRoll = gameRolls[index + 2];
-      score +=
-        scoreMap[roll] + scoreMap[firstBonusRoll] + scoreMap[secondBonusRoll];
+      //need to revisit second role being a spare - the logic in last else
+      //condition is causing an issue.
+      if (secondBonusRoll === "/") {
+        score += scoreMap[roll] + scoreMap["/"];
+      } else {
+        score +=
+          scoreMap[roll] + scoreMap[firstBonusRoll] + scoreMap[secondBonusRoll];
+      }
     } else if (roll === "/" && index < gameRolls.length - 1) {
       roll === "/" && index < gameRolls.length - 1;
       const firstBonusRoll = gameRolls[index + 1];
@@ -41,7 +47,6 @@ export const bowlingScore = (gameFrames: string): number => {
     } else {
       //need conditions that exclude scores already added for spare and strike frames
       if (roll !== "X" && roll !== "/" && gameRolls[index + 1] !== "/") {
-        console.log("inside else, " + "index:" + index + "roll:" + roll);
         //exclude last spare and roll after spare since they've already been added
         index === gameRolls.length - 1 && gameRolls[index - 1] === "/"
           ? (score += 0)

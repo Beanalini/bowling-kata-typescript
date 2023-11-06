@@ -21,9 +21,17 @@ describe("bowlingScore()", () => {
     //Act and assert
     expect(bowlingScore(gameFrame)).toEqual(90);
   });
+  test("mixed frames - no bonus rolls", () => {
+    //Arrange
+    const gameFrame = "32 54 35 42 61 21 -3 4- 25";
+    //Act and assert
+    expect(bowlingScore(gameFrame)).toEqual(52);
+  });
 
-  // test("", () => {
-
-  //   expect(bowlingScore()).toEqual(2);
-  // });
+  test("mixed frames - no bonus rolls", () => {
+    //Arrange
+    const gameFrame = "32 54 35 42 61 21 -3 4- 25";
+    //Act and assert
+    expect(bowlingScore(gameFrame)).toEqual(52);
+  });
 });
