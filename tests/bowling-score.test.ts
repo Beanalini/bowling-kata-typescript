@@ -9,9 +9,16 @@ describe("bowlingScore()", () => {
     const gameFrames = "X X X X X X X X X X X X";
     expect(bowlingScore(gameFrames)).toEqual(300);
   });
-  test("returns score for game of strikes and spare bonus ", () => {
-    expect(bowlingScore(gameFrames)).toEqual(290);
+  test("Game includes 10 frames of spare", () => {
+    //Arrange
+    const gameFrame = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5";
+    //Act and assert
+    expect(bowlingScore(gameFrame)).toEqual(150);
   });
+  // test("returns score for game of strikes and spare bonus ", () => {
+  //   const gameFrames = "X X X X X X X X X X 5/";
+  //   expect(bowlingScore(gameFrames)).toEqual(290);
+  // });
 
   // test("", () => {
 

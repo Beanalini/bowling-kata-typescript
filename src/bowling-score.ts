@@ -35,6 +35,11 @@ export const bowlingScore = (gameFrames: string): number => {
       score +=
         scoreMap[roll] + scoreMap[firstBonusRoll] + scoreMap[secondBonusRoll];
     }
+
+    if (roll === "/" && index < gameRolls.length - 1) {
+      const firstBonusRoll = gameRolls[index + 1];
+      score += 10 + scoreMap[firstBonusRoll];
+    }
   });
 
   return score;
