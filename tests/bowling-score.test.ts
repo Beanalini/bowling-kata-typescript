@@ -15,10 +15,12 @@ describe("bowlingScore()", () => {
     //Act and assert
     expect(bowlingScore(gameFrame)).toEqual(150);
   });
-  // test("returns score for game of strikes and spare bonus ", () => {
-  //   const gameFrames = "X X X X X X X X X X 5/";
-  //   expect(bowlingScore(gameFrames)).toEqual(290);
-  // });
+  test("Game includes misses", () => {
+    //Arrange
+    const gameFrame = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-";
+    //Act and assert
+    expect(bowlingScore(gameFrame)).toEqual(90);
+  });
 
   // test("", () => {
 
